@@ -4,7 +4,7 @@
   <let name="sensor_model" value="go2_vehicle_sensor_kit"/>
   <let name="base_frame" value="base_link"/>
   <let name="parent_frame" value="sensor_kit_base_link"/>
-  <let name="rviz_profile" value="$(find-pkg-share extrinsic_ground_plane_calibrator)/rviz/velodyne_top.rviz"/>
+  <let name="rviz_profile" value="$(find-pkg-share extrinsic_ground_plane_calibrator)/rviz/livox_frame.rviz"/>
   <arg name="rviz" default="true"/>
 
   <!-- extrinsic_calibration_client -->

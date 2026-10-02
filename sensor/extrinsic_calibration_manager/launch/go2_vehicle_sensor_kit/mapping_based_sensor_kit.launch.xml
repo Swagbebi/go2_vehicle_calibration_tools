@@ -1,41 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <arg name="vehicle_id" default="default"/>
-  <let name="sensor_model" value="aip_x1"/>
+  <arg name="vehicle_id" default="go2_vehicle"/>
+  <let name="sensor_model" value="go2_vehicle_sensor_kit"/>
 
   <let name="camera_calibration_service_names" value="['']"/>
 
   <let
     name="lidar_calibration_service_names"
-    value="[
-    /sensor_kit/sensor_kit_base_link/livox_front_left_base_link,
-    /sensor_kit/sensor_kit_base_link/livox_front_center_base_link,
-    /sensor_kit/sensor_kit_base_link/livox_front_right_base_link]"
+    value="[ /sensor_kit/sensor_kit_base_link/livox_base_frame]"
   />
 
   <let name="camera_calibration_sensor_kit_frames" value="['']"/>
 
-  <let name="lidar_calibration_sensor_kit_frames" value="[
-    sensor_kit_base_link,
-    sensor_kit_base_link,
-    sensor_kit_base_link]"/>
+  <let name="lidar_calibration_sensor_kit_frames" value="[sensor_kit_base_link]"/>
 
   <let name="calibration_camera_frames" value="['']"/>
 
   <let name="calibration_camera_optical_link_frames" value="['']"/>
 
-  <let name="calibration_lidar_base_frames" value="[
-    livox_front_left_base_link,
-    livox_front_center_base_link,
-    livox_front_right_base_link]"/>
+  <let name="calibration_lidar_base_frames" value="[livox_base_frame]"/>
 
-  <let name="calibration_lidar_frames" value="[
-    livox_front_left,
-    livox_front_center,
-    livox_front_right]"/>
+  <let name="calibration_lidar_frames" value="[ livox_frame]"/>
 
-  <let name="mapping_lidar_frame" value="velodyne_top"/>
-  <let name="mapping_pointcloud" value="/sensing/lidar/top/outlier_filtered/pointcloud"/>
+  <let name="mapping_lidar_frame" value="livox_top"/>
+  <let name="mapping_pointcloud" value="/sensing/lidar/top/lidar"/>
   <let name="detected_objects" value="/perception/object_recognition/detection/objects"/>
 
   <let name="calibration_camera_info_topics" value="['']"/>
@@ -43,9 +31,7 @@
   <let name="calibration_image_topics" value="['']"/>
 
   <let name="calibration_pointcloud_topics" value="[
-    /sensing/lidar/front_left/livox/lidar,
-    /sensing/lidar/front_center/livox/lidar,
-    /sensing/lidar/front_right/livox/lidar]"/>
+    /sensing/lidar/livox/lidar]"/>
 
   <arg name="rviz"/>
   <let name="rviz_profile" value="$(find-pkg-share extrinsic_mapping_based_calibrator)/rviz/x1.rviz"/>
